@@ -4,7 +4,8 @@ const {
   getPassingStudents,
   getStudentAverage,
   getHighestAchiever,
-  getLowestAchiever
+  getLowestAchiever,
+  AnalyseGrades
 } = require('./getPassingStudent')
 
 
@@ -46,5 +47,21 @@ describe('LowestAchiever',() =>{
   { name: 'Bob', grade: 40 },
   { name: 'Charlie', grade: 70 }
 ])).toEqual({ name: 'Bob', grade: 40} );
+  });
+});
+
+describe('AnalyseGrades',() =>{
+  it('returns average, returns the student with the highest grade,the student with the lowest grade', () => {
+    expect(AnalyseGrades([
+  { name: 'Alice', grade: 90 },
+  { name: 'Bob', grade: 40 },
+  { name: 'Charlie', grade: 70 }
+])).toEqual({
+  average: 67,
+  highest: { name: 'Alice', grade: 90 },
+  lowest: { name: 'Bob', grade: 40 },
+  passing: ['Alice', 'Charlie']
+}
+);
   });
 });

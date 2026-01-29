@@ -52,6 +52,20 @@ const getLowestAchiever = (students) => {
   return lowest_achiever
 }
 
+const AnalyseGrades = (students) => {
+    const passing_students = getPassingStudents(students)
+    const average_grade = getStudentAverage(students)
+    const highest_grade = getHighestAchiever(students)
+    const lowest_grade = getLowestAchiever(students)
+
+    return {
+  average: average_grade,
+  highest: highest_grade,
+  lowest: lowest_grade,
+  passing: passing_students
+    }
+}
+
 
     //Tests
 console.log(getPassingStudents([
@@ -77,5 +91,6 @@ module.exports = {
   getPassingStudents,
   getStudentAverage,
   getHighestAchiever,
-  getLowestAchiever
+  getLowestAchiever,
+  AnalyseGrades
 }
